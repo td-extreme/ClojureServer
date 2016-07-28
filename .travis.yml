@@ -1,0 +1,2 @@
+nguage: clojure
+script: lein spec
