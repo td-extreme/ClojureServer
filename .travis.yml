@@ -1,2 +1,2 @@
-nguage: clojure
+language: clojure
 script: lein spec
