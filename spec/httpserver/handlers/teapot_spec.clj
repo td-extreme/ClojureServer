@@ -5,7 +5,7 @@
 (import '(com.td.HttpServer HttpResponse))
 
 (describe "teapotHandler"
-          (it "returns an HttpRequest with code 418"
-            (let [testTeapot (teapot/new-teapotHandler)
-                  response (.generateResponse testTeapot)]
-              (should= 418 (.responseCode response)))))
+  (it "returns an HttpRequest with code 418"
+    (let [testTeapot (teapot/new-teapotHandler)
+          response (.generateResponse testTeapot)]
+      (should= 418 (.responseCode response)))))
