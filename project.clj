@@ -9,7 +9,7 @@
                  ]
 
   :plugins [[speclj "3.3.1"]]
-  :profiles {:dev {:dependencies [[speclj "3.3.1"]]}}
+  :profiles {:dev {:dependencies [[speclj "3.3.1"]]} :uberjar {:aot :all}}
   :test-paths ["spec"]
   :main httpserver.core
   )
