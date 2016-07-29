@@ -1,7 +1,6 @@
 (ns httpserver.arguments-spec
   (:require [speclj.core :refer :all]
-            [httpserver.utilities.arguments :as arguments]
-            [clojure.tools.cli :refer [parse-opts]]))
+            [httpserver.utilities.arguments :as arguments]))
 
 (def args '("-p" "5000" "-d" "./site"))
 (def argsEmpty '())

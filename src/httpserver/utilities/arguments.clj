@@ -1,5 +1,5 @@
 (ns httpserver.utilities.arguments
-  (:require [clojure.tools.cli :refer [parse-opts]]))
+  (:require [clojure.tools.cli :as cli]))
 
 (def cli-options
   [["-p" "--port PORT"
@@ -9,4 +9,4 @@
     :default  "./"]])
 
 (defn build-map [args]
-   (parse-opts args cli-options))
+   (cli/parse-opts args cli-options))
