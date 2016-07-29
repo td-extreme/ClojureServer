@@ -6,10 +6,9 @@
 (deftype teapotHandler []
   com.td.HttpServer.IHandler
   (generateResponse [this]
-    (let [response (HttpResponse.)]
-    (.setBody response "I'm a teapot", "text/plain")
-    (.setResponseCode response 418)
-    response)))
+  (doto (HttpResponse.)
+    (.setBody "I'm a teapot", "text/plain")
+    (.setResponseCode 418))))
 
 (defn new-teapotHandler []
   (teapotHandler.))
