@@ -1,18 +1,15 @@
 (ns httpserver.core
-  (:require [httpserver.handlers.teapot :as myteapot]
-            [httpserver.utilities.arguments :as argumenetParser])
+  (:require [httpserver.handlers.teapot :as teapot]
+            [httpserver.utilities.arguments :as arguments])
   (:gen-class))
 
 (import '(com.td.HttpServer HttpServer))
 (import '(com.td.HttpServer HttpResponse))
 (import '(com.td.HttpServer IHandler))
 
-(def display_welcome "Http Server!")
-
 (defn -main [& args]
-  (println display_welcome)
-  (let [{:keys [options]} (argumenetParser/buildMap args)]
+  (let [{:keys [options]} (arguments/build-map args)]
     (let [server (HttpServer. (:port options) (:directory options))
-          myTea (myteapot/new-teapotHandler)]
-      (.addRoute server "GET" "/teapot" myTea)
+          teapot-handler (teapot/new-teapot-handler)]
+      (.addRoute server "GET" "/teapot" teapot-handler)
       (.run server))))

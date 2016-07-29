@@ -8,5 +8,5 @@
    ["-d" "--directory DIRECTORY"
     :default  "./"]])
 
-(defn buildMap [args]
+(defn build-map [args]
    (parse-opts args cli-options))
