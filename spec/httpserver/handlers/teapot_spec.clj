@@ -6,6 +6,6 @@
 
 (describe "teapotHandler"
   (it "returns an HttpRequest with code 418"
-    (let [testTeapot (teapot/new-teapotHandler)
+    (let [testTeapot (teapot/new-teapot-handler)
           response (.generateResponse testTeapot)]
       (should= 418 (.responseCode response)))))
