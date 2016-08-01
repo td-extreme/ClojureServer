@@ -6,7 +6,7 @@
 (deftype ok-handler []
   com.td.HttpServer.IHandler
   (generateResponse [this]
-    (doto (HttpResponse.))))
+    (HttpResponse.)))
 
 (defn new-ok-handler []
   (ok-handler.))
