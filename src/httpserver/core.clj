@@ -12,9 +12,7 @@
   (let [{:keys [options]} (arguments/build-map args)]
     (let [server (HttpServer. (:port options) (:directory options))
           teapot-handler (teapot/new-teapot-handler)
-          ok-handler (ok/new-ok-handler)
-          ]
-
+          ok-handler (ok/new-ok-handler)]
       (.addRoute server "GET" "/coffee" teapot-handler)
       (.addRoute server "GET" "/tea" ok-handler)
       (.run server))))
