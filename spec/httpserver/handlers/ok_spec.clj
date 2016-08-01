@@ -7,5 +7,5 @@
 (describe "OkHandler"
   (it "returns an HttpRequest with code 200"
     (let [ok-handler (ok/new-ok-handler)
-           response (.generateResponse ok-handler)]
+      response (.generateResponse ok-handler)]
       (should= 200 (.responseCode response)))))
