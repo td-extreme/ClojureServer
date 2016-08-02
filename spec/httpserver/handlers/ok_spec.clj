@@ -8,5 +8,4 @@
   (it "the map returned has key :body value of OK"
      (should= "OK" (:body (ok/call "dummy"))))
   (it "the map returned has a :header map with key :Content-Type value of text/plain"
-     (should= "text/plain" (:Content-Type (:headers (ok/call "dummy")))))
-  )
+     (should= "text/plain" (:Content-Type (:headers (ok/call "dummy"))))))
