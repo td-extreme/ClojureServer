@@ -7,6 +7,5 @@
      (should= 418 (:code (teapot/call "dummy"))))
   (it "the map returned has key :body value of I'm a teapot!"
      (should= "I'm a teapot!" (:body (teapot/call "dummy"))))
-  (it "the map returned has a :header map with key :Content-Type value of text/plain"
-     (should= "text/plain" (:Content-Type (:headers (teapot/call "dummy")))))
-  )
+  (it "the map returned has a :header map with key Content-Type value of text/plain"
+      (should= (hash-map "Content-Type" "text/plain") (:headers (teapot/call "dummy")))))
