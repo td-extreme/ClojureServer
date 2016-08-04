@@ -1,4 +1,4 @@
-(ns httpserver.handlers.handler_function_selector
+(ns httpserver.router
   (:require [httpserver.handlers.ok :as ok]
             [httpserver.handlers.teapot :as teapot]))
 

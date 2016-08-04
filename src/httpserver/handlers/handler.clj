@@ -1,5 +1,5 @@
 (ns httpserver.handlers.handler
-  (:require [httpserver.handlers.handler_function_selector :as selector]))
+  (:require [httpserver.router :as router]))
 
 (import '(com.td.HttpServer HttpResponse))
 (import '(com.td.HttpServer IHandler))
@@ -9,7 +9,7 @@
   com.td.HttpServer.IHandler
   (generateResponse [this httpRequest]
     (let [request (hash-map :path (.path httpRequest) :method (.method httpRequest) :headers (.headers httpRequest) :body (.body httpRequest))
-          function-to-use (selector/get-function request)
+          function-to-use (router/get-function request)
           response (function-to-use request)
           headers (java.util.HashMap. (:headers response))]
       (doto (HttpResponse.)
