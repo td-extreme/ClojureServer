@@ -6,7 +6,7 @@
 (import '(com.td.HttpServer HttpRequest))
 
 (describe "main handler"
-  (it "returns a HttpResponse with code 418 when given an HttpRequest GET /coffee"
+  (it "returns a HttpResponse with code 418 when passed a HttpRequest GET /coffee"
     (let [httpRequest (HttpRequest. "GET /coffee HTTP/1.1" (java.util.HashMap. {"this" "that"}))
           main-handler (handler/new-handler)
           httpResponse (.generateResponse main-handler httpRequest)]

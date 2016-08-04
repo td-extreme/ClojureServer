@@ -3,9 +3,9 @@
             [httpserver.handlers.teapot :as teapot]))
 
 (describe "teapotHandler"
-  (it "the map returned has key :code value of 418"
+  (it "returns a map with :code 418"
      (should= 418 (:code (teapot/call "dummy"))))
-  (it "the map returned has key :body value of I'm a teapot!"
+  (it "returns a map with :body I'm a teapot!"
      (should= "I'm a teapot!" (:body (teapot/call "dummy"))))
-  (it "the map returned has a :header map with key Content-Type value of text/plain"
-      (should= (hash-map "Content-Type" "text/plain") (:headers (teapot/call "dummy")))))
+  (it "returns a map with :headers {Content-Type text/plain}"
+      (should= {"Content-Type" "text/plain"} (:headers (teapot/call "dummy")))))
