@@ -8,4 +8,4 @@
   (it "returns a mape with :body OK"
     (should= "OK" (:body (ok/call "dummy"))))
   (it "returns a map that has a :header with map of Content-Type text/plain"
-    (should= (hash-map "Content-Type" "text/plain") (:headers (ok/call "dummy")))))
+    (should= {"Content-Type" "text/plain"} (:headers (ok/call "dummy")))))
