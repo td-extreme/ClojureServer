@@ -11,8 +11,7 @@
     (let [request (hash-map :path (.path httpRequest) :method (.method httpRequest) :headers (.headers httpRequest) :body (.body httpRequest))
           function-to-use (selector/get-function request)
           response (function-to-use request)
-          headers (java.util.HashMap. (:headers response))
-          ]
+          headers (java.util.HashMap. (:headers response))]
       (doto (HttpResponse.)
         (.setBody (:body response))
         (.setResponseCode (:code response))

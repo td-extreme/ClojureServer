@@ -1,4 +1,4 @@
-(ns httpserver.handler_function_selector_spec
+(ns httpserver.handler_spec
    (:require [speclj.core :refer :all]
    [httpserver.handlers.handler :as handler]))
 
