@@ -2,10 +2,10 @@
   (:require [speclj.core :refer :all]
             [httpserver.handlers.teapot :as teapot]))
 
-(import '(com.td.HttpServer HttpResponse))
-
 (describe "teapotHandler"
-  (it "returns an HttpRequest with code 418"
-    (let [testTeapot (teapot/new-teapot-handler)
-          response (.generateResponse testTeapot)]
-      (should= 418 (.responseCode response)))))
+  (it "returns a map with :code 418"
+     (should= 418 (:code (teapot/call "dummy"))))
+  (it "returns a map with :body I'm a teapot!"
+     (should= "I'm a teapot!" (:body (teapot/call "dummy"))))
+  (it "returns a map with :headers {Content-Type text/plain}"
+      (should= {"Content-Type" "text/plain"} (:headers (teapot/call "dummy")))))

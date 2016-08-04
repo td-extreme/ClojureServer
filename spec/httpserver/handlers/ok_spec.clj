@@ -2,10 +2,10 @@
   (:require [speclj.core :refer :all]
             [httpserver.handlers.ok :as ok]))
 
-(import '(com.td.HttpServer HttpResponse))
-
-(describe "OkHandler"
-  (it "returns an HttpRequest with code 200"
-    (let [ok-handler (ok/new-ok-handler)
-      response (.generateResponse ok-handler)]
-      (should= 200 (.responseCode response)))))
+(describe "ok"
+  (it "returns a map with :code 200"
+    (should= 200 (:code (ok/call "dummy"))))
+  (it "returns a mape with :body OK"
+    (should= "OK" (:body (ok/call "dummy"))))
+  (it "returns a map that has a :header with map of Content-Type text/plain"
+    (should= {"Content-Type" "text/plain"} (:headers (ok/call "dummy")))))
