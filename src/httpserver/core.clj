@@ -10,8 +10,7 @@
 (defn -main [& args]
   (let [{:keys [options]} (arguments/build-map args)]
     (let [server (HttpServer. (:port options) (:directory options))
-          main-handler (handler/new-handler)
-          ]
+          main-handler (handler/new-handler)]
       (.addRoute server "GET" "/coffee" main-handler)
       (.addRoute server "GET" "/tea" main-handler)
       (.run server))))
