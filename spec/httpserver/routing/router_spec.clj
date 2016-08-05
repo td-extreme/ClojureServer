@@ -5,18 +5,18 @@
 
 (import '(com.td.HttpServer HttpServer))
 
-(describe "Checking if this is the route were are looking for"
-  (it "returns false if the method does not match the one in map route"
+(describe "Checking if this is the route it should be looking for"
+  (it "returns false if the method of the current route being checked does not match the method it should be looking for"
     (should= false (router/check-route "PUT" "/path" {:method "GET" :path "/path"})))
-  (it "returns false if the path does not match the one in map route"
+  (it "returns false if the path of the current route being checked does not match the path it should be looking for"
     (should= false (router/check-route "GET" "/" {:method "GET" :path "/path"})))
-  (it "returns false if the method and path do not match the ones in map route"
+  (it "returns false if neither the method nor path do not match the ones it should be looking for"
     (should= false (router/check-route "PUT" "/" {:method "GET" :path "/path"})))
-  (it "returns true if the method and path match the ones in map route"
+  (it "returns true if the method and path match the ones it should be looking for"
     (should= true (router/check-route "GET" "/path" {:method "GET" :path "/path"}))))
 
 (describe "Finding our route inside a list of routes"
-  (it "returns a map that contains the route and path we are looking for"
+  (it "returns a map that contains the route and path that it should be looking for"
     (let [test-list (list {:method "GET" :path "/"}
                           {:method "GET" :path "/test"}
                           {:method "PUT" :path "/test"})]
