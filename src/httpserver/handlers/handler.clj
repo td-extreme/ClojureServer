@@ -6,7 +6,7 @@
 (import '(com.td.HttpServer HttpRequest))
 
 (defn build-request [httpRequest]
-  (hash-map :path (.path httpRequest) :method (.method httpRequest) :headers (.headers httpRequest) :body (.body httpRequest)))
+  {:path (.path httpRequest) :method (.method httpRequest) :headers (.headers httpRequest) :body (.body httpRequest)})
 
 (def routes {})
 

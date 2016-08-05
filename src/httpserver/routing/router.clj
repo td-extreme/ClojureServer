@@ -9,3 +9,7 @@
 (defn get-handler [request routes]
   (:handler (find-route (:method request) (:path request) routes))
   )
+
+(defn add-routes [server list-of-routes main-handler]
+  (doseq [route list-of-routes]
+    (.addRoute server (:method route) (:path route) main-handler)))
