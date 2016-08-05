@@ -8,13 +8,11 @@
 (defn build-request [httpRequest]
   {:path (.path httpRequest) :method (.method httpRequest) :headers (.headers httpRequest) :body (.body httpRequest)})
 
-(def routes {})
-
-(deftype main-handler []
+(defrecord MainHandler [list-of-routes]
   com.td.HttpServer.IHandler
   (generateResponse [this httpRequest]
     (let [request (build-request httpRequest)
-          function-to-use (router/get-handler request routes)
+          function-to-use (router/get-handler request list-of-routes)
           response (function-to-use request)
           headers (java.util.HashMap. (:headers response))]
       (doto (HttpResponse.)
@@ -23,5 +21,4 @@
         (.addHeaders headers)))))
 
 (defn new-handler [list-of-routes]
-  (def routes list-of-routes)
-  (main-handler.))
+  (MainHandler. list-of-routes))
