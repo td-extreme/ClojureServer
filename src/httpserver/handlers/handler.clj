@@ -6,7 +6,10 @@
 (import '(com.td.HttpServer HttpRequest))
 
 (defn build-request [httpRequest]
-  {:path (.path httpRequest) :method (.method httpRequest) :headers (.headers httpRequest) :body (.body httpRequest)})
+  {:path (.path httpRequest)
+   :method (.method httpRequest)
+   :headers (.headers httpRequest)
+   :body (.body httpRequest)})
 
 (defrecord MainHandler [list-of-routes]
   com.td.HttpServer.IHandler
