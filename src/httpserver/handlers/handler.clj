@@ -9,6 +9,7 @@
   {:path (.path httpRequest)
    :method (.method httpRequest)
    :headers (.headers httpRequest)
+   :parameters (.parameters httpRequest)
    :body (.body httpRequest)})
 
 (defrecord MainHandler [list-of-routes]
