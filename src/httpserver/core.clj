@@ -2,7 +2,7 @@
   (:require [httpserver.handlers.handler :as handler]
             [httpserver.utilities.arguments :as arguments]
             [httpserver.routing.router :as router]
-            [httpserver.routes.routes :as routes])
+            [httpserver.routing.routes :as routes])
   (:gen-class))
 
 (import '(com.td.HttpServer HttpServer))
