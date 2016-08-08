@@ -1,9 +1,9 @@
 (ns httpserver.handlers.parameter-decode)
 
-(defn decode [parameters]
+(defn- decode [parameters]
   (java.net.URLDecoder/decode parameters))
 
-(defn build-body [parameters]
+(defn- build-body [parameters]
   (decode (clojure.string/replace parameters #"&" "\n"))
   )
 
