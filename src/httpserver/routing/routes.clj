@@ -1,4 +1,4 @@
-(ns httpserver.routes.routes
+(ns httpserver.routing.routes
   (:require [httpserver.handlers.teapot :as teapot]
             [httpserver.handlers.ok :as ok]))
 
