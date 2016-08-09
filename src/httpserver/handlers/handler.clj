@@ -1,5 +1,6 @@
 (ns httpserver.handlers.handler
-  (:require [httpserver.routing.router :as router]))
+  (:require [httpserver.routing.router :as router])
+  (:import java.util.HashMap))
 
 (import '(com.td.HttpServer HttpResponse))
 (import '(com.td.HttpServer IHandler))
@@ -18,7 +19,7 @@
     (let [request (build-request httpRequest)
           function-to-use (router/get-handler request list-of-routes)
           response (function-to-use request)
-          headers (java.util.HashMap. (:headers response))]
+          headers (HashMap. (:headers response))]
       (doto (HttpResponse.)
         (.setBody (:body response))
         (.setResponseCode (:code response))
