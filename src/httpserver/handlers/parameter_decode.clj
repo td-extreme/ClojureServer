@@ -1,10 +1,13 @@
-(ns httpserver.handlers.parameter-decode)
+(ns httpserver.handlers.parameter-decode
+  (:require [clojure.string :as string])
+  (:import java.net.URLDecoder)
+  )
 
-(defn- decode [parameters]
-  (java.net.URLDecoder/decode parameters))
+(defn- decode-url [parameters]
+  (URLDecoder/decode parameters))
 
 (defn- build-body [parameters]
-  (decode (clojure.string/replace parameters #"&" "\n"))
+  (decode-url (string/replace parameters #"&" "\n"))
   )
 
 (defn call [request]
