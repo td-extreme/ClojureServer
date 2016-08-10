@@ -10,4 +10,9 @@
     (let [test-list [{:method "GET" :path "/" :handler "GET / hanlder"}
                      {:method "GET" :path "/test" :handler :mock-test-handler}]
           request {:method "GET" :path "/test"}]
+      (should= :mock-test-handler (router/get-handler request test-list))))
+  (it "returns the appropriate handler function for the route with * method"
+    (let [test-list [{:method "GET" :path "/" :handler "GET * hanlder"}
+                     {:method "GET" :path "/test" :handler :mock-test-handler}]
+          request {:method "GET" :path "/test"}]
       (should= :mock-test-handler (router/get-handler request test-list)))))
