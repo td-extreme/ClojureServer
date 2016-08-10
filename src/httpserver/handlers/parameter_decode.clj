@@ -8,5 +8,5 @@
 (defn- build-body [parameters]
   (decode-url (string/replace parameters #"&" "\n")))
 
-(defn call [request]
+(defn call [request working-directory]
   {:code 200 :headers {"Content-Type" "text/plain"} :body (build-body (:parameters request))})
