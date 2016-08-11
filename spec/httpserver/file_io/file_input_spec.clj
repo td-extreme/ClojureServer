@@ -8,7 +8,7 @@
         (should= (type (byte-array 3)) (type (file-input/get-file-contents-as-bytes
                               "./folder_for_io_testing"
                               "/test.txt"))))
-   (it "returns a byte-array of length 32 when asked to open test.txt file"
+   (it "returns a byte-array of length 33 when asked to open test.txt file"
      (should= 33 (count (file-input/get-file-contents-as-bytes
                             "./folder_for_io_testing"
                             "/test.txt")))))
