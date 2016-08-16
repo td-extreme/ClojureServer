@@ -12,6 +12,6 @@
   (it "returns a HttpResponse with code 418 when passed a HttpRequest GET /coffee"
       (let [test-list [{:method "GET" :path "/coffee" :handler teapot/call}]
             httpRequest (HttpRequest. "GET /coffee HTTP/1.1" (java.util.HashMap. {"this" "that"}))
-            main-handler (handler/new-handler test-list)
+            main-handler (handler/new-handler test-list :dummy-working-directoy)
             httpResponse (.generateResponse main-handler httpRequest)]
       (should= 418 (.responseCode httpResponse)))))

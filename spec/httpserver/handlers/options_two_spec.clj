@@ -4,8 +4,8 @@
 
 (describe "options_two"
   (it "returns a map with :body ''"
-    (should= "" (:body (options_two/call :dummy-request))))
+    (should= "" (:body (options_two/call :dummy-request :dummy-dir))))
   (it "returns a map with :code 200"
-    (should= 200 (:code (options_two/call :dummy-request))))
+    (should= 200 (:code (options_two/call :dummy-request :dummy-dir))))
   (it "returns a map with :header with a map of 'Allow' 'GET,OPTIONS"
-    (should= {"Allow" "GET,OPTIONS"} (:headers (options_two/call :dummy-request)))))
+    (should= {"Allow" "GET,OPTIONS"} (:headers (options_two/call :dummy-request :dummy-dir)))))

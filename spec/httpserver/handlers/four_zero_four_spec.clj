@@ -4,8 +4,8 @@
 
 (describe "Four Zero Four Handler"
   (it "returns a map with :code 404"
-    (should= 404 (:code (four-zero-four/call :dummy-request))))
+    (should= 404 (:code (four-zero-four/call :dummy-request :dummy-dir))))
   (it "returns a map with :headers {}"
-    (should= {} (:headers (four-zero-four/call :dummy-request))))
+    (should= {} (:headers (four-zero-four/call :dummy-request :dummy-dir))))
   (it "returns a map with :body ''"
-    (should= "" (:body (four-zero-four/call :dummy-request)))))
+    (should= "" (:body (four-zero-four/call :dummy-request :dummy-dir)))))
