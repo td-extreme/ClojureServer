@@ -1,7 +1,13 @@
 (ns httpserver.routing.router)
 
+(defn- check-method [path1 path2]
+  (cond
+    (= path1 "*") true
+    (= path1 path2) true
+    :else false))
+
 (defn- check-route [method path route]
-  (and (= (:method route) method) (= (:path route) path)))
+  (and (= (:method route) method) (check-method (:path route) path)))
 
 (defn- find-route [method path routes]
   (some #(when (check-route method path %) %) routes))
