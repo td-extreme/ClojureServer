@@ -6,7 +6,7 @@
     :default 8080
     :parse-fn #(Integer/parseInt %)]
    ["-d" "--directory DIRECTORY"
-    :default  "./"]])
+    :default  "."]])
 
 (defn build-map [args]
    (cli/parse-opts args cli-options))
