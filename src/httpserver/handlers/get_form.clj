@@ -8,6 +8,4 @@
     :else ""))
 
 (defn call [request working-directory]
-  (println (get-form-contents working-directory))
-  (println (file-type-checker/is-file working-directory "/form"))
   {:code 200 :headers {} :body (get-form-contents working-directory)})
