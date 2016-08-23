@@ -21,6 +21,6 @@
         (let [{:keys [options]} (arguments/build-map argsEmpty)]
           (should= 8080 (:port options))))
 
-      (it "default directory is ./"
+      (it "default directory is ."
         (let [{:keys [options]} (arguments/build-map argsEmpty)]
-          (should= "./" (:directory options))))))
+          (should= "." (:directory options))))))
