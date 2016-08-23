@@ -5,5 +5,5 @@
 (defn call [request working-directory]
   (cond
     (= "/" (:path request)) (two-hundred/call request working-directory)
-    (= "/foobar" (:path request)) (four-zero-four/call request working-directory)))
-
+    (= "/foobar" (:path request)) (four-zero-four/call request working-directory)
+    :else (two-hundred/call request working-directory)))
